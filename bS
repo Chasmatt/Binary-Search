@@ -1,0 +1,58 @@
+echo "# Binary-Search" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Chasmatt/Binary-Search.git
+git push -u origin main
+Function BinarySearch(integer array(?) numbers, integer key) returns integer mid
+   integer low
+   integer high
+
+   high = numbers.size - 1
+
+   while (high >= low) and (numbers[mid] != key)
+      mid = (high + low) / 2
+      if numbers[mid] < key
+         low = mid + 1
+      elseif numbers[mid] > key
+         high = mid - 1
+
+   if numbers[mid] != key
+      mid = -1 
+
+Function Main() returns nothing
+   integer array(8) numbers
+   integer i
+   integer key
+   integer keyIndex
+
+   numbers[0] = 2
+   numbers[1] = 4
+   numbers[2] = 7
+   numbers[3] = 10
+   numbers[4] = 11
+   numbers[5] = 32
+   numbers[6] = 45
+   numbers[7] = 87
+
+   Put "NUMBERS: " to output
+   for i = 0; i < numbers.size; i = i + 1
+      Put numbers[i] to output
+      Put " " to output
+   Put "\n" to output
+
+   Put "Enter a value: " to output
+   key = Get next input
+   Put "\n" to output
+
+   keyIndex = BinarySearch(numbers, key)
+
+   if keyIndex == -1
+      Put key to output
+      Put " was not found" to output
+   else
+      Put "Found " to output
+      Put key to output
+      Put " at index " to output
+      Put keyIndex to output
